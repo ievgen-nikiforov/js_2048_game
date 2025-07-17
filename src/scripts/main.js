@@ -14,7 +14,7 @@ const msgLose = document.querySelector('.message-lose');
 function render() {
   const state = game.getState();
   const score = game.getScore();
-  const status = game.getStatus();
+  const currentStatus = game.getStatus();
 
   scoreEl.textContent = score;
 
@@ -33,10 +33,10 @@ function render() {
   });
 
   msgStart.classList.add('hidden');
-  msgWin.classList.toggle('hidden', status !== 'win');
-  msgLose.classList.toggle('hidden', status !== 'lose');
+  msgWin.classList.toggle('hidden', currentStatus !== 'win');
+  msgLose.classList.toggle('hidden', currentStatus !== 'lose');
 
-  if (status === 'win' || status === 'lose') {
+  if (currentStatus === 'win' || currentStatus === 'lose') {
     startBtn.textContent = 'Restart';
     startBtn.classList.remove('start');
     startBtn.classList.add('restart');
@@ -48,7 +48,7 @@ startBtn.addEventListener('click', () => {
   render();
 });
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', () => {
   const currentStatus = game.getStatus();
 
   if (currentStatus !== 'playing') {

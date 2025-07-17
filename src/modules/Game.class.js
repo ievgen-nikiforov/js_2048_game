@@ -237,10 +237,10 @@ class Game {
   addRandomTile() {
     const emptyCells = [];
 
-    for (let r = 0; r < this.size; r++) {
-      for (let c = 0; c < this.size; c++) {
-        if (this.board[r][c] === 0) {
-          emptyCells.push({ r, c });
+    for (let row = 0; row < this.size; row++) {
+      for (let col = 0; col < this.size; col++) {
+        if (this.board[row][col] === 0) {
+          emptyCells.push({ row, col });
         }
       }
     }
