@@ -249,7 +249,7 @@ class Game {
       return;
     }
 
-    const { r, c } =
+    const { row: r, col: c } =
       emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
     this.board[r][c] = Math.random() < 0.9 ? 2 : 4;
